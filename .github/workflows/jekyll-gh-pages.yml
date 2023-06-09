@@ -4,8 +4,7 @@ name: Deploy Jekyll with GitHub Pages dependencies preinstalled
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches:
-      - gh-pages
+    branches: ["gh-pages"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -50,8 +49,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
-      - name: Configure Custom Domain
-        run: |
-          echo "emmanuelmutua.github.io" > $GITHUB_WORKSPACE/_site/CNAME
-        working-directory: ${{ github.workspace }}
-        if: success()
